@@ -1,6 +1,6 @@
 jQuerify
 ==========
-You can easily adapt jQuery plugin to work with jQuery with browserify environment without making global jQuery object
+You can easily adapt jQuery plugin to work with jQuery in browserify environment without making global jQuery object
 
 Download
 --------
