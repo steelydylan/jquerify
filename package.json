@@ -1,0 +1,14 @@
+{
+	"name": "jquerify",
+	"version": "0.0.1",
+	"main": "./index.js",
+	"description":"You can easily adapt jQuery plugin to work with jQuery",
+	"author":{
+		"name":"steelydylan",
+		"url":"http://horicdesign.com"
+	},
+	"dependencies": {
+		"through2": "*"
+	},
+	"licenses": "MIT"
+}
