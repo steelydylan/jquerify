@@ -2,6 +2,8 @@ jQuerify
 ==========
 You can easily adapt jQuery plugin to work with jQuery
 
+Usage
+--------
 
 ```gulpfile.js
 var gulp = require('gulp');
