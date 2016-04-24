@@ -5,6 +5,8 @@ You can easily adapt jQuery plugin to work with jQuery with browserify environme
 Usage
 --------
 
+gulpfile.js
+
 ```js
 var gulp = require('gulp');
 var rename = require('gulp-rename');
@@ -22,6 +24,7 @@ gulp.task('js',function(){
 });
 ```
 
+main.js
 
 ```js
 (function(){
