@@ -5,7 +5,7 @@ You can easily adapt jQuery plugin to work with jQuery
 Usage
 --------
 
-```gulpfile.js
+```js
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var jquerify = require('jquerify');
@@ -23,7 +23,7 @@ gulp.task('js',function(){
 ```
 
 
-```main.js
+```js
 (function(){
 	var $ = require("jquery-browserify");
 	var autoAlign = require("./autoAlign.js");
