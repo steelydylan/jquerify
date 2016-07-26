@@ -23,7 +23,6 @@ module.exports = function(options){
 	    		}
 	    	});
 	    	if (flag){
-	    		console.log("true");
 	    		content = code.replace("${code_here}",content);
 	    	}
 	        this.push(content);
