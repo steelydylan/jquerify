@@ -1,4 +1,5 @@
 var through  = require('through2');
+var path = require('path');
 var code = "(function (factory) {"+
     "if (typeof module === 'object' && module.exports){"+
         "module.exports = factory;"+
@@ -8,14 +9,25 @@ var code = "(function (factory) {"+
 "}(function(){"+
 	"${code_here}"+
 "}));";
- 
-module.exports = function (file) {
-    return through(function (buf, enc, next) {
-    	var content = buf.toString('utf8');
-    	if (content.indexOf("module.exports") == -1 && (content.indexOf("$.fn") != -1 || content.indexOf("jQuery") != -1)){
-    		content = code.replace("${code_here}",content);
-    	}
-        this.push(content);
-        next();
-    });
+
+module.exports = function(options){
+	var files = options.files;
+	var process_path = process.cwd();
+	return function (filename) {
+	    return through(function (buf, enc, next) {
+	    	var content = buf.toString('utf8');
+	    	var flag = false;
+	    	files.forEach(function(file){
+	    		if(path.resolve(process_path,file) === filename){
+	    			flag = true;
+	    		}
+	    	});
+	    	if (flag){
+	    		console.log("true");
+	    		content = code.replace("${code_here}",content);
+	    	}
+	        this.push(content);
+	        next();
+	    });
+	};
 };
