@@ -20,14 +20,21 @@ var rename = require('gulp-rename');
 var jquerify = require('jquerify');
 var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 
-gulp.task('js',function(){
-	gulp.src(["./js/main.js"])
-		.pipe(browserify({
-			jquery:'jquery-browserify',
-			transform: ['jquerify'],
-		}))
-		.pipe(gulp.dest("./js/dist"));
+gulp.task("js",function(){
+	browserify('./js/main.js')
+	.transform(jquerify({
+		files:[
+			"./js/autoAlign.js"
+		]
+	}))
+	.bundle()
+	.pipe(source('main.js'))
+	.pipe(buffer())
+	.pipe(uglify())
+	.pipe(gulp.dest('./js/dist'));
 });
 ```
 
@@ -35,7 +42,7 @@ main.js
 
 ```js
 (function(){
-	var $ = require("jquery-browserify");
+	var $ = require("./jquery.js");
 	var autoAlign = require("./autoAlign.js");
 	autoAlign($);
 	$(window).load(function(){
