@@ -18,7 +18,7 @@ gulpfile.js
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var jquerify = require('jquerify');
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
