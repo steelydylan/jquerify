@@ -6,7 +6,8 @@ var code = "(function (factory) {"+
     "}else{"+
         "factory(jQuery);"+
     "}"+
-"}(function(){"+
+"}(function(jQuery){"+
+	"var $ = jQuery;"+
 	"${code_here}"+
 "}));";
 
